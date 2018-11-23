@@ -1,0 +1,43 @@
+{
+  "name": "array-unique-proposal",
+  "version": "0.1.0",
+  "description": "ECMAScript proposal for Deduplicating method of Array",
+  "keywords": [
+    "JavaScript",
+    "ECMAScript",
+    "array",
+    "unique",
+    "deduplicate",
+    "proposal",
+    "polyfill"
+  ],
+  "author": "shiy2008@gmail.com",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/TechQuery/array-unique-proposal#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechQuery/array-unique-proposal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TechQuery/array-unique-proposal/issues"
+  },
+  "main": "polyfill.js",
+  "scripts": {
+    "check": "mocha -r @babel/register -r @babel/polyfill -r should --inline-diffs -c",
+    "test": "npm run check --exit",
+    "debug": "npm run check --inspect-brk"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/register": "^7.0.0",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
