@@ -1,43 +1,64 @@
 {
-  "name": "array-unique-proposal",
-  "version": "0.1.0",
-  "description": "ECMAScript proposal for Deduplicating method of Array",
-  "keywords": [
-    "JavaScript",
-    "ECMAScript",
-    "array",
-    "unique",
-    "deduplicate",
-    "proposal",
-    "polyfill"
-  ],
-  "author": "shiy2008@gmail.com",
-  "license": "GPL-3.0",
-  "homepage": "https://github.com/TechQuery/array-unique-proposal#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TechQuery/array-unique-proposal.git"
-  },
-  "bugs": {
-    "url": "https://github.com/TechQuery/array-unique-proposal/issues"
-  },
-  "main": "polyfill.js",
-  "scripts": {
-    "check": "mocha -r @babel/register -r @babel/polyfill -r should --inline-diffs -c",
-    "test": "npm run check --exit",
-    "debug": "npm run check --inspect-brk"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/register": "^7.0.0",
-    "mocha": "^5.2.0",
-    "should": "^13.2.3"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  }
+    "name": "array-unique-proposal",
+    "version": "0.2.0",
+    "description": "ECMAScript proposal for Deduplicating method of Array",
+    "keywords": [
+        "JavaScript",
+        "ECMAScript",
+        "array",
+        "unique",
+        "deduplicate",
+        "proposal",
+        "polyfill"
+    ],
+    "author": "shiy2008@gmail.com",
+    "license": "GPL-3.0",
+    "homepage": "https://github.com/TechQuery/array-unique-proposal#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TechQuery/array-unique-proposal.git"
+    },
+    "bugs": {
+        "url": "https://github.com/TechQuery/array-unique-proposal/issues"
+    },
+    "source": "polyfill/index.ts",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "lint-staged && jest",
+        "build": "tsc",
+        "prepublishOnly": "npm test  &&  npm run build"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.0",
+        "husky": "^4.2.5",
+        "jest": "^26.0.1",
+        "lint-staged": "^10.2.9",
+        "prettier": "^2.0.5",
+        "ts-jest": "^26.1.0",
+        "typescript": "^3.9.5"
+    },
+    "prettier": {
+        "singleQuote": true,
+        "trailingComma": "none",
+        "arrowParens": "avoid",
+        "tabWidth": 4
+    },
+    "lint-staged": {
+        "*.{md,json,yml,ts}": [
+            "prettier --write"
+        ]
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "testPathIgnorePatterns": [
+            "dist/.+"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test",
+            "pre-push": "npm run build"
+        }
+    }
 }
