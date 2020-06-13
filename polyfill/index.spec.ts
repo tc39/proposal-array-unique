@@ -57,7 +57,7 @@ describe('Array.prototype.unique()', () => {
         ]);
     });
 
-    it('should reserve an item while the Custom callback return `true`', () => {
+    it('should compare items using "!==" by Returned values of a Custom callback', () => {
         expect(origin.unique(item => `${item.uid}${item[symbol]}`)).toEqual(
             origin
         );

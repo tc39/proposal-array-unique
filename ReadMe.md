@@ -20,14 +20,38 @@ While `Array.prototype.unique()` invoked with:
 
 3.  one **function** parameter, it'll call this function for each array element, and then deduplicates the origin array based on these _returned values_.
 
-## Technical details
+## Typical cases
 
--   [Function signature](polyfill/index.ts#L6)
+```JavaScript
+[1, 2, 3, 3, 2, 1].unique();  // [1, 2, 3]
 
--   [Typical cases](polyfill/index.spec.ts)
+const data = [
+    { id: 1, uid: 10000 },
+    { id: 2, uid: 10000 },
+    { id: 3, uid: 10001 }
+];
+
+data.unique('uid');
+// [
+//     { id: 2, uid: 10000 },
+//     { id: 3, uid: 10001 }
+// ]
+
+data.unique(({ id, uid }) => `${id}-${uid}`);
+// [
+//     { id: 1, uid: 10000 },
+//     { id: 2, uid: 10000 },
+//     { id: 3, uid: 10001 }
+// ]
+```
+
+## Polyfill
+
+[Write in TypeScript](polyfill/index.ts)
 
 ## Proposer
 
-[@TechQuery](https://github.com/TechQuery)
+-   Author: [@TechQuery](https://github.com/TechQuery)
+-   Champion: [@Jack-Works](https://github.com/Jack-Works)
 
 [1]: https://nodei.co/npm/array-unique-proposal/

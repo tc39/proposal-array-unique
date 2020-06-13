@@ -8,6 +8,8 @@ interface Array<T> {
 
 if (typeof Array.prototype.unique !== 'function')
     Object.defineProperty(Array.prototype, 'unique', {
+        writable: true,
+        configurable: true,
         value: function <T>(this: T[], valueResolver?: ValueResolver<T>) {
             if (!(valueResolver != null)) return [...new Set(this)];
 
