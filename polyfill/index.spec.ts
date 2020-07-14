@@ -62,4 +62,12 @@ describe('Array.prototype.unique()', () => {
             origin
         );
     });
+
+    it('should treat an empty/nullish item as a nullish value', () => {
+        expect([1, , 2, undefined, null, 1].unique()).toEqual([1, , 2, null]);
+
+        expect(
+            [{ id: 1 }, , { id: 2 }, undefined, null, { id: 1 }].unique('id')
+        ).toEqual([{ id: 1 }, , { id: 2 }, null]);
+    });
 });

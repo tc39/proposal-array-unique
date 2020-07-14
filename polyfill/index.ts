@@ -1,6 +1,8 @@
 type Resolver<T> = (item: T) => any;
 
-type ValueResolver<T> = number | string | symbol | Resolver<T>;
+type Indexer<T> = number | keyof T | symbol;
+
+type ValueResolver<T> = Indexer<T> | Resolver<T>;
 
 interface Array<T> {
     unique(valueResolver?: ValueResolver<T>): T[];
@@ -16,7 +18,9 @@ if (typeof Array.prototype.unique !== 'function')
             const key = typeof valueResolver !== 'function' && valueResolver,
                 map = new Map<any, T>();
 
-            valueResolver = key ? item => item[key] : valueResolver;
+            valueResolver = key
+                ? (item: Record<Indexer<T>, any>) => item?.[key] ?? item
+                : valueResolver;
 
             for (const item of this)
                 map.set((valueResolver as Resolver<T>)(item), item);

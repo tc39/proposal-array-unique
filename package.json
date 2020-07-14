@@ -1,6 +1,6 @@
 {
     "name": "array-unique-proposal",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "ECMAScript proposal for Deduplicating method of Array",
     "keywords": [
         "JavaScript",
@@ -29,13 +29,13 @@
         "prepublishOnly": "npm test  &&  npm run build"
     },
     "devDependencies": {
-        "@types/jest": "^26.0.0",
+        "@types/jest": "^26.0.4",
         "husky": "^4.2.5",
-        "jest": "^26.0.1",
-        "lint-staged": "^10.2.9",
+        "jest": "^26.1.0",
+        "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
-        "ts-jest": "^26.1.0",
-        "typescript": "^3.9.5"
+        "ts-jest": "^26.1.2",
+        "typescript": "^3.9.6"
     },
     "prettier": {
         "singleQuote": true,

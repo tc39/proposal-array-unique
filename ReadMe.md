@@ -20,6 +20,11 @@ While `Array.prototype.unique()` invoked with:
 
 3.  one **function** parameter, it'll call this function for each array element, and then deduplicates the origin array based on these _returned values_.
 
+Notice:
+
+-   the **Returned value** is a new array, no mutation happens in the original array
+-   **Empty/nullish items** are treated as nullish values
+
 ## Typical cases
 
 ```JavaScript
