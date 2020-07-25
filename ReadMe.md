@@ -1,5 +1,7 @@
 # Array deduplication proposal
 
+Stage: 1
+
 ECMAScript proposal for Deduplicating method of Array.
 
 [![NPM](https://nodei.co/npm/array-unique-proposal.png?downloads=true&downloadRank=true&stars=true)][1]
