@@ -5,11 +5,11 @@ type Indexer<T> = number | keyof T | symbol;
 type ValueResolver<T> = Indexer<T> | Resolver<T>;
 
 interface Array<T> {
-    unique(valueResolver?: ValueResolver<T>): T[];
+    uniqueBy(valueResolver?: ValueResolver<T>): T[];
 }
 
-if (typeof Array.prototype.unique !== 'function')
-    Object.defineProperty(Array.prototype, 'unique', {
+if (typeof Array.prototype.uniqueBy !== 'function')
+    Object.defineProperty(Array.prototype, 'uniqueBy', {
         writable: true,
         configurable: true,
         value: function <T>(this: T[], valueResolver?: ValueResolver<T>) {
@@ -22,8 +22,11 @@ if (typeof Array.prototype.unique !== 'function')
                 ? (item: Record<Indexer<T>, any>) => item?.[key] ?? item
                 : valueResolver;
 
-            for (const item of this)
-                map.set((valueResolver as Resolver<T>)(item), item);
+            for (const item of this) {
+                const key = (valueResolver as Resolver<T>)(item);
+
+                if (!map.has(key)) map.set(key, item);
+            }
 
             return [...map.values()];
         }

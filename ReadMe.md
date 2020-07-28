@@ -1,8 +1,8 @@
 # Array deduplication proposal
 
-Stage: 1
-
 ECMAScript proposal for Deduplicating method of Array.
+
+![Proposal Stage-1](https://img.shields.io/badge/Proposal-Stage--1-red)
 
 [![NPM](https://nodei.co/npm/array-unique-proposal.png?downloads=true&downloadRank=true&stars=true)][1]
 
@@ -10,11 +10,11 @@ ECMAScript proposal for Deduplicating method of Array.
 
 **Deduplication** is one of the most common requirements in Data processing, especially in large Web Apps nowadays.
 
-`[...new Set(array)]` in ECMAScript 6 isn't enough for **Non-primitive values**, and now, we may need a `Array.prototype.unique()`.
+`[...new Set(array)]` in ECMAScript 6 isn't enough for **Non-primitive values**, and now, we may need a `Array.prototype.uniqueBy()`.
 
 ## Core features
 
-While `Array.prototype.unique()` invoked with:
+While `Array.prototype.uniqueBy()` invoked with:
 
 1.  no parameter, it'll work as `[...new Set(array)]`;
 
@@ -26,11 +26,13 @@ Notice:
 
 -   the **Returned value** is a new array, no mutation happens in the original array
 -   **Empty/nullish items** are treated as nullish values
+-   `0` & `-0` are treated as the same
+-   All `NaN`s are treated as the same
 
 ## Typical cases
 
 ```JavaScript
-[1, 2, 3, 3, 2, 1].unique();  // [1, 2, 3]
+[1, 2, 3, 3, 2, 1].uniqueBy();  // [1, 2, 3]
 
 const data = [
     { id: 1, uid: 10000 },
@@ -38,13 +40,13 @@ const data = [
     { id: 3, uid: 10001 }
 ];
 
-data.unique('uid');
+data.uniqueBy('uid');
 // [
-//     { id: 2, uid: 10000 },
+//     { id: 1, uid: 10000 },
 //     { id: 3, uid: 10001 }
 // ]
 
-data.unique(({ id, uid }) => `${id}-${uid}`);
+data.uniqueBy(({ id, uid }) => `${id}-${uid}`);
 // [
 //     { id: 1, uid: 10000 },
 //     { id: 2, uid: 10000 },
