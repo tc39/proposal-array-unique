@@ -10,7 +10,15 @@ ECMAScript proposal for Deduplicating method of Array.
 
 **Deduplication** is one of the most common requirements in Data processing, especially in large Web Apps nowadays.
 
-`[...new Set(array)]` in ECMAScript 6 isn't enough for **Non-primitive values**, and now, we may need a `Array.prototype.uniqueBy()`.
+In Lodash, `*uniq*` methods are also [very popular][2]:
+
+| #   | Name     | Downloads |
+| --- | -------- | --------- |
+| 1   | uniq     | 5,546,070 |
+| 7   | uniqby   | 447,858   |
+| 28  | uniqwith | 15,077    |
+
+But `[...new Set(array)]` in ECMAScript 6 isn't enough for **Non-primitive values**, and now, we may need a `Array.prototype.uniqueBy()`.
 
 ## Core features
 
@@ -66,3 +74,4 @@ A polyfill is available in the [core-js](https://github.com/zloirock/core-js) li
 -   Champion: [@Jack-Works](https://github.com/Jack-Works)
 
 [1]: https://nodei.co/npm/array-unique-proposal/
+[2]: https://github.com/AndrewRot/lodash-function-usage/blob/9ec92a7980e321f8a32dd62e13addd6562ba4612/README.md
