@@ -56,7 +56,9 @@ data.uniqueBy(({ id, uid }) => `${id}-${uid}`);
 
 ## Polyfill
 
-[Write in TypeScript](polyfill/index.ts)
+A polyfill is available in the [core-js](https://github.com/zloirock/core-js) library. You can find it in the [ECMAScript proposals section](https://github.com/zloirock/core-js#array-deduplication).
+
+[A simple polyfill from the proposal repo write in TypeScript.](polyfill/index.ts)
 
 ## Proposer
 
