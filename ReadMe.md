@@ -3,14 +3,15 @@
 ECMAScript proposal for Deduplicating method of Array.
 
 ![Proposal Stage-1](https://img.shields.io/badge/Proposal-Stage--1-red)
+[![CI & CD](https://github.com/tc39/proposal-array-unique/actions/workflows/main.yml/badge.svg)][1]
 
-[![NPM](https://nodei.co/npm/array-unique-proposal.png?downloads=true&downloadRank=true&stars=true)][1]
+[![NPM](https://nodei.co/npm/array-unique-proposal.png?downloads=true&downloadRank=true&stars=true)][2]
 
 ## Motivation
 
 **Deduplication** is one of the most common requirements in Data processing, especially in large Web Apps nowadays.
 
-In Lodash, `*uniq*` methods are also [very popular][2]:
+In Lodash, `*uniq*` methods are also [very popular][3]:
 
 | #   | Name     | Downloads |
 | --- | -------- | --------- |
@@ -64,7 +65,7 @@ data.uniqueBy(({ id, uid }) => `${id}-${uid}`);
 
 ## Polyfill
 
-A polyfill is available in the [core-js](https://github.com/zloirock/core-js) library. You can find it in the [ECMAScript proposals section](https://github.com/zloirock/core-js#array-deduplication).
+A polyfill is available in the [core-js][4] library. You can find it in the [ECMAScript proposals section][5].
 
 [A simple polyfill from the proposal repo write in TypeScript.](polyfill/index.ts)
 
@@ -73,5 +74,8 @@ A polyfill is available in the [core-js](https://github.com/zloirock/core-js) li
 -   Author: [@TechQuery](https://github.com/TechQuery)
 -   Champion: [@Jack-Works](https://github.com/Jack-Works)
 
-[1]: https://nodei.co/npm/array-unique-proposal/
-[2]: https://github.com/AndrewRot/lodash-function-usage/blob/9ec92a7980e321f8a32dd62e13addd6562ba4612/README.md
+[1]: https://github.com/tc39/proposal-array-unique/actions/workflows/main.yml
+[2]: https://nodei.co/npm/array-unique-proposal/
+[3]: https://github.com/AndrewRot/lodash-function-usage/blob/9ec92a7980e321f8a32dd62e13addd6562ba4612/README.md
+[4]: https://github.com/zloirock/core-js
+[5]: https://github.com/zloirock/core-js#array-deduplication
