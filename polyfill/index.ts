@@ -4,8 +4,12 @@ type Indexer<T> = number | keyof T | symbol;
 
 type ValueResolver<T> = Indexer<T> | Resolver<T>;
 
-interface Array<T> {
-    uniqueBy(valueResolver?: ValueResolver<T>): T[];
+export {};
+
+declare global {
+    interface Array<T> {
+        uniqueBy(valueResolver?: ValueResolver<T>): T[];
+    }
 }
 
 if (typeof Array.prototype.uniqueBy !== 'function')

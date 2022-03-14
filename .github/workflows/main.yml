@@ -17,7 +17,11 @@ jobs:
                   cache: yarn
             - name: Install packages
               run: yarn
-            - name: Test, Build & Publish
+            - name: Test & Build
+              if: ${{ !secrets.NPM_TOKEN }}
+              run: npm test  &&  yarn build
+            - name: Publish
+              if: ${{ secrets.NPM_TOKEN }}
               run: yarn publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

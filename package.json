@@ -1,6 +1,6 @@
 {
     "name": "array-unique-proposal",
-    "version": "0.3.2",
+    "version": "0.3.4",
     "description": "ECMAScript proposal for Deduplicating method of Array",
     "keywords": [
         "JavaScript",
